@@ -41,7 +41,7 @@ export const Navbar = () => {
             <img
               src={img("/assets/profile.png")}
               alt="Karen"
-              className="inline-block w-8.5 h-8.5 mr-2 rounded-full object-cover object-top"
+              className="inline-block w-8.5 h-8.5 mr-2 rounded-full"
             />
             <span className="text-glow text-foreground"> KarenCKL </span>{" "}
             Portfolio{" "}
