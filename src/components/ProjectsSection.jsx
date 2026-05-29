@@ -10,7 +10,7 @@ const projects = [
     description:
       "Designed and implemented an IoT security testbed with physical and simulated devices. Built automated logging pipelines and a Grafana dashboard to visualize security events. Collected data in the uOttawa-IBM Cyber Range over 4 days. Exploring ML approaches for anomaly detection.",
     image: "/assets/project1.png",
-    tags: ["Zigbee", "Grafana", "Docker", "Kubernetes", "IoT Security"],
+    tags: ["TypeScript", "Python", "Shell Scripting", "C", "C++", "Zeek", "Batchfile", "Zigbee", "Grafana", "Docker", "Kubernetes", "IoT Security"],
     githubUrl: "https://github.com/OCyberLab/IoTa",
   },
   {
@@ -30,7 +30,7 @@ const projects = [
     description:
       "Full-stack prescription management system replacing a 50-year-old manual system. MVC architecture with Spring Boot backend and Angular frontend. Integrated Spring Security for role-based access, PostgreSQL, and Docker containerization.",
     image: "/assets/project3.png",
-    tags: ["Spring Boot", "Angular", "PostgreSQL", "Docker", "Kotlin"],
+    tags: ["Spring Boot", "Angular", "PostgreSQL", "Docker", "Kotlin", "Gherkin", "Cucumber", "Junit", "Mockito"],
     githubUrl: "https://github.com/SEG3502-A25/projet-groupe5",
   },
   {
@@ -40,7 +40,7 @@ const projects = [
     description:
       "Developed a full-stack hotel management system. Modeled the database with an ER diagram and relational schema. Built frontend with React and Bootstrap, backend with Node.js and Express.js, and PostgreSQL for data persistence.",
     image: "/assets/project4.png",
-    tags: ["React", "Node.js", "Express.js", "PostgreSQL", "Postman"],
+    tags: ["React.js", "CSS/SCSS", "Node.js", "Express.js", "PostgreSQL", "Postman"],
     githubUrl: "https://github.com/CSI2532-eHotel/eHotel",
   },
   {
@@ -60,7 +60,7 @@ const projects = [
     description:
       "Developed a responsive dental clinic website with emphasis on HCI, prototyping in user-centered design, accessibility, and visual communication using HTML, CSS, SASS, Bootstrap, jQuery, and JavaScript.",
     image: "/assets/project6.png",
-    tags: ["HTML", "CSS", "SASS", "Bootstrap", "JavaScript"],
+    tags: ["HTML", "CSS", "SCSS", "Bootstrap", "JavaScript"],
     githubUrl: "https://github.com/KarenCKL/SEG3525_Project1",
   },
   {
@@ -80,7 +80,7 @@ const projects = [
     description:
       "A machine learning algorithm trained to program in various languages, built for beginner learning, code troubleshooting, debugging, and task automation. Available for individuals, professionals, and companies.",
     image: "/assets/project8.png",
-    tags: ["Machine Learning", "Python"],
+    tags: ["Machine Learning", "Python", "HTML/CSS/SCSS", "JavaScript"],
     githubUrl: "https://github.com/Omnithink/0-M-N-1-T-H-1-N-K",
   },
   {
