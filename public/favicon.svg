@@ -1,0 +1,28 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="86" y1="75" x2="426" y2="437" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5CFF8D"/>
+      <stop offset="0.42" stop-color="#16D9FF"/>
+      <stop offset="0.72" stop-color="#7B5CFF"/>
+      <stop offset="1" stop-color="#FF2BC2"/>
+    </linearGradient>
+    <linearGradient id="stroke" x1="93" y1="102" x2="417" y2="410" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5CFF8D"/>
+      <stop offset="0.45" stop-color="#13D8FF"/>
+      <stop offset="1" stop-color="#FF2BC2"/>
+    </linearGradient>
+    <filter id="glow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="#05070F"/>
+  <circle cx="256" cy="256" r="190" fill="url(#bg)" opacity="0.13"/>
+  <path d="M256 56L418 149V363L256 456L94 363V149L256 56Z" stroke="url(#stroke)" stroke-width="16" stroke-linejoin="round" filter="url(#glow)"/>
+
+  <text x="256" y="330" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="210" font-weight="800" fill="url(#stroke)" filter="url(#glow)">&lt;K&gt;</text>
+</svg>
