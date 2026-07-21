@@ -5,6 +5,14 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const imageSrcs = [
   "/assets/diploma.png",
+  "/assets/achievement.png",
+  "/assets/mother.png",
+  "/assets/Family.png",
+  "/assets/uOttawa.png",
+  "/assets/Graduation_Ceremony.png",
+  "/assets/Graduation_Photo.png",
+  "/assets/graduation_gifts.png",
+  "/assets/a_day_to_cherish.png",
   "/assets/obligation.png",
   "/assets/lifelong_reminder.png",
   "/assets/calling_of_an_engineer.png",
