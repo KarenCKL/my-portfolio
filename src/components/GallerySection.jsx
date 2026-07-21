@@ -1,43 +1,44 @@
 import { useState, useCallback, useEffect } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { img } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
-const images = [
-  { src: "/assets/diploma.png", alt: "Diploma" },
-  { src: "/assets/obligation.png", alt: "Obligation" },
-  { src: "/assets/lifelong_reminder.png", alt: "Lifelong Reminder" },
-  { src: "/assets/calling_of_an_engineer.png", alt: "Calling of an Engineer" },
-  { src: "/assets/iron_ceremony.png", alt: "Iron Ring Ceremony" },
-  { src: "/assets/iron_ring.png", alt: "Iron Ring" },
-  { src: "/assets/honored.png", alt: "Honored" },
-  { src: "/assets/engineering_guide.png", alt: "Engineering Guide" },
-  { src: "/assets/CDEL_CO-OP.png", alt: "CDEL CO-OP" },
-  { src: "/assets/WBD_CO-OP.png", alt: "WBD CO-OP" },
-  { src: "/assets/CO-OP_lunch.png", alt: "CO-OP Lunch" },
-  { src: "/assets/impact_day.png", alt: "Impact Day" },
-  { src: "/assets/painting.png", alt: "Painting" },
-  { src: "/assets/dean_fall22.png", alt: "Dean's List Fall 2022" },
-  { src: "/assets/dean_winter23.png", alt: "Dean's List Winter 2023" },
-  { src: "/assets/dean_summer23.png", alt: "Dean's List Summer 2023" },
-  { src: "/assets/dean_fall23.png", alt: "Dean's List Fall 2023" },
-  { src: "/assets/dean_winter24.png", alt: "Dean's List Winter 2024" },
-  { src: "/assets/dean_summer24.png", alt: "Dean's List Summer 2024" },
-  { src: "/assets/dean_fall24.png", alt: "Dean's List Fall 2024" },
-  { src: "/assets/dean_winter25.png", alt: "Dean's List Winter 2025" },
-  { src: "/assets/dean_summer25.png", alt: "Dean's List Summer 2025" },
-  { src: "/assets/dean_fall25.png", alt: "Dean's List Fall 2025" },
-  { src: "/assets/FCP_Certificate.png", alt: "FCP Certificate" },
-  { src: "/assets/cambridge_certificate.png", alt: "Cambridge Certificate" },
-
+const imageSrcs = [
+  "/assets/diploma.png",
+  "/assets/obligation.png",
+  "/assets/lifelong_reminder.png",
+  "/assets/calling_of_an_engineer.png",
+  "/assets/iron_ceremony.png",
+  "/assets/iron_ring.png",
+  "/assets/honored.png",
+  "/assets/engineering_guide.png",
+  "/assets/CDEL_CO-OP.png",
+  "/assets/WBD_CO-OP.png",
+  "/assets/CO-OP_lunch.png",
+  "/assets/impact_day.png",
+  "/assets/painting.png",
+  "/assets/dean_fall22.png",
+  "/assets/dean_winter23.png",
+  "/assets/dean_summer23.png",
+  "/assets/dean_fall23.png",
+  "/assets/dean_winter24.png",
+  "/assets/dean_summer24.png",
+  "/assets/dean_fall24.png",
+  "/assets/dean_winter25.png",
+  "/assets/dean_summer25.png",
+  "/assets/dean_fall25.png",
+  "/assets/FCP_Certificate.png",
+  "/assets/cambridge_certificate.png",
 ];
 
 export const GallerySection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const { t } = useLanguage();
 
-  const galleryImages = images.map((imgItem) => ({
-    ...imgItem,
-    src: img(imgItem.src),
+  const galleryImages = imageSrcs.map((src, i) => ({
+    src: img(src),
+    alt: t.gallery.images[i].alt,
   }));
 
   const cardsPerView = 3;
@@ -69,7 +70,7 @@ export const GallerySection = () => {
     };
     window.addEventListener("keydown", handleKeydown);
     return () => window.removeEventListener("keydown", handleKeydown);
-  }, [lightboxIndex]);
+  }, [lightboxIndex, galleryImages.length]);
 
   const visibleImages = galleryImages.slice(currentIndex, currentIndex + cardsPerView);
   const totalSlides = Math.ceil(galleryImages.length / cardsPerView);
@@ -78,21 +79,21 @@ export const GallerySection = () => {
     <section id="gallery" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Gallery
+          {t.gallery.title}
         </h2>
 
         <div className="px-8">
           <div className="relative">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {visibleImages.map((img, i) => (
+              {visibleImages.map((imgItem, i) => (
                 <div
                   key={currentIndex + i}
                   className="aspect-[4/3] rounded-lg overflow-hidden bg-card border border-border shadow-xs cursor-pointer"
                   onClick={() => setLightboxIndex(currentIndex + i)}
                 >
                   <img
-                    src={img.src}
-                    alt={img.alt}
+                    src={imgItem.src}
+                    alt={imgItem.alt}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
@@ -103,7 +104,7 @@ export const GallerySection = () => {
               <button
                 onClick={prev}
                 className="absolute right-full mr-5 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card border border-border shadow-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 z-10 hidden md:block"
-                aria-label="Previous images"
+                aria-label={t.gallery.prevLabel}
               >
                 <ChevronLeft size={24} />
               </button>
@@ -113,7 +114,7 @@ export const GallerySection = () => {
               <button
                 onClick={next}
                 className="absolute left-full ml-5 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card border border-border shadow-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 z-10 hidden md:block"
-                aria-label="Next images"
+                aria-label={t.gallery.nextLabel}
               >
                 <ChevronRight size={24} />
               </button>
@@ -141,7 +142,7 @@ export const GallerySection = () => {
             onClick={prev}
             disabled={currentIndex === 0}
             className="p-3 rounded-full bg-card border border-border shadow-xs disabled:opacity-30 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
-            aria-label="Previous images"
+            aria-label={t.gallery.prevLabel}
           >
             <ChevronLeft size={22} />
           </button>
@@ -149,7 +150,7 @@ export const GallerySection = () => {
             onClick={next}
             disabled={currentIndex >= maxIndex}
             className="p-3 rounded-full bg-card border border-border shadow-xs disabled:opacity-30 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
-            aria-label="Next images"
+            aria-label={t.gallery.nextLabel}
           >
             <ChevronRight size={22} />
           </button>
@@ -164,7 +165,7 @@ export const GallerySection = () => {
           <button
             onClick={() => setLightboxIndex(null)}
             className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors z-10"
-            aria-label="Close"
+            aria-label={t.gallery.closeLabel}
           >
             <X size={28} />
           </button>
@@ -173,7 +174,7 @@ export const GallerySection = () => {
             <button
               onClick={(e) => { e.stopPropagation(); setLightboxIndex((prev) => prev - 1); }}
               className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors z-10"
-              aria-label="Previous image"
+              aria-label={t.gallery.prevImage}
             >
               <ChevronLeft size={28} />
             </button>
@@ -190,7 +191,7 @@ export const GallerySection = () => {
             <button
               onClick={(e) => { e.stopPropagation(); setLightboxIndex((prev) => prev + 1); }}
               className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors z-10"
-              aria-label="Next image"
+              aria-label={t.gallery.nextImage}
             >
               <ChevronRight size={28} />
             </button>

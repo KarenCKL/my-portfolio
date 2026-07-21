@@ -1,11 +1,13 @@
 import { GraduationCap, Calendar, Award, Star } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export const EducationSection = () => {
+  const { t } = useLanguage();
   return (
     <section id="education" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Education
+          {t.education.title}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -15,38 +17,38 @@ export const EducationSection = () => {
                 <GraduationCap className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h4 className="font-semibold text-lg">University of Ottawa</h4>
+                <h4 className="font-semibold text-lg">{t.education.university}</h4>
                 <p className="text-sm text-muted-foreground">
-                  Bachelor of Applied Science — Software Engineering (CO-OP)
+                  {t.education.degree}
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3">
               <Calendar size={12} />
-              <span>Sep 2022 – Apr 2026</span>
+              <span>{t.education.period1}</span>
             </div>
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="flex items-center gap-1.5">
                 <Award size={14} className="text-primary" />
-                <span className="font-medium text-foreground">Dean's Honour Award:</span> All terms
+                <span className="font-medium text-foreground">{t.education.deansAward}</span> {t.education.allTerms}
               </p>
               <p className="flex items-center gap-1.5">
                 <Star size={14} className="text-primary" />
-                <span className="font-medium text-foreground">CGPA:</span> 9.7/10
+                <span className="font-medium text-foreground">{t.education.cgpa}</span> 9.7/10
               </p>
               <p className="flex items-center gap-1.5">
                 <Award size={14} className="text-primary" />
-                <span className="font-medium text-foreground">Fortinet NSE 4</span> — FortiOS 7.6 Administrator
+                <span className="font-medium text-foreground">{t.education.nse4}</span> — {t.education.nse4Desc}
               </p>
               <p className="mt-3">
-                <span className="font-medium text-foreground">Activities:</span> Engineering Guide, Hack the Hill, uOhack
+                <span className="font-medium text-foreground">{t.education.activities}</span> {t.education.uniActivities}
               </p>
               <details className="mt-3 group">
                 <summary className="cursor-pointer text-primary font-medium text-sm hover:underline">
-                  Key Coursework
+                  {t.education.keyCoursework}
                 </summary>
                 <p className="mt-2 leading-relaxed">
-                  Software Engineering Capstone I & II, Real Time & Embedded Software Design, Secure Enterprise Network Infrastructure (Fortinet), Data Communications & Networking (Cisco), Software Project Management, Design & Analysis of Algorithms, Software Requirements Analysis, Software Design & Architecture, Database, Software Construction, UI/UX Design, Operating Systems, Software Quality Assurance, Computer Architecture, Data Structures & Algorithms, Discrete Structures, OOP, Intro to Software Engineering, Technical Report Writing, Calculus, Professional Communication, Digital Systems, Probability & Statistics, Discrete Mathematics for Computing, Professional Practice in Computing.
+                  {t.education.coursework}
                 </p>
               </details>
             </div>
@@ -58,28 +60,28 @@ export const EducationSection = () => {
                 <GraduationCap className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h4 className="font-semibold text-lg">Gaetan Raynal State College</h4>
+                <h4 className="font-semibold text-lg">{t.education.college}</h4>
                 <p className="text-sm text-muted-foreground">
-                  O-Level and A-Level Cambridge School Certificates
+                  {t.education.collegeDegree}
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3">
               <Calendar size={12} />
-              <span>Jan 2014 – Sep 2021</span>
+              <span>{t.education.period2}</span>
             </div>
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>
-                <span className="font-medium text-foreground">Ranked 3rd</span> nationwide for A-Level Cambridge Computer Science
+                <span className="font-medium text-foreground">{t.education.ranked3rd}</span> {t.education.ranked3rdDesc}
               </p>
               <p>
-                <span className="font-medium text-foreground">Ranked 30th</span> Mauritius Science Side Girls Scholarship
+                <span className="font-medium text-foreground">{t.education.ranked30th}</span> {t.education.scholarship}
               </p>
               <p>
-                <span className="font-medium text-foreground">Aggregate 6</span> for O-Level Cambridge School Certificate
+                <span className="font-medium text-foreground">{t.education.aggregate}</span> {t.education.aggregateDesc}
               </p>
               <p className="mt-3">
-                <span className="font-medium text-foreground">Activities:</span> Prefect Body, UNESCO Club, Glider Competition, Handball Competition, Australian Mathematics Competition
+                <span className="font-medium text-foreground">{t.education.activities}</span> {t.education.collegeActivities}
               </p>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 const skills = [
   // Frontend
@@ -55,10 +56,23 @@ const skills = [
   { name: "Espresso (Android)", level: 60, category: "testing" },
 ];
 
-const categories = ["all", "frontend", "backend", "Programming Languages", "databases", "devops", "AI", "security", "testing"];
+const categoryKeys = ["all", "frontend", "backend", "Programming Languages", "databases", "devops", "AI", "security", "testing"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
+  const { t } = useLanguage();
+
+  const categoryTranslations = {
+    all: t.skills.all,
+    frontend: t.skills.frontend,
+    backend: t.skills.backend,
+    "Programming Languages": t.skills.programmingLanguages,
+    databases: t.skills.databases,
+    devops: t.skills.devops,
+    AI: t.skills.ai,
+    security: t.skills.security,
+    testing: t.skills.testing,
+  };
 
   const filteredSkills = skills.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
@@ -68,11 +82,11 @@ export const SkillsSection = () => {
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary">Skills</span>
+          {t.skills.title1} <span className="text-primary">{t.skills.title2}</span>
         </h2>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, key) => (
+          {categoryKeys.map((category, key) => (
             <button
               key={key}
               onClick={() => setActiveCategory(category)}
@@ -83,7 +97,7 @@ export const SkillsSection = () => {
                   : "bg-secondary/70 text-foreground hover:bg-secondary"
               )}
             >
-              {category}
+              {categoryTranslations[category]}
             </button>
           ))}
         </div>
