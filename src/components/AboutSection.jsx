@@ -6,8 +6,8 @@ export const AboutSection = () => {
   const { t } = useLanguage();
   const { language } = useLanguage();
   const resumeFile = language === "fr"
-    ? img("/Karen Kim Niet Chan Kwong Lun_CV.pdf")
-    : img("/Karen Kim Niet Chan Kwong Lun_Resume.pdf");
+    ? img("/Karen_Chan_Kwong_Lun_CV.pdf")
+    : img("/Karen_Chan_Kwong_Lun_Resume.pdf");
   const resumeDownload = language === "fr"
     ? "Karen_Chan_Kwong_Lun_CV.pdf"
     : "Karen_Chan_Kwong_Lun_Resume.pdf";
